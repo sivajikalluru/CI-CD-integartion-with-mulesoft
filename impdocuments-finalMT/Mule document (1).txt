@@ -1,0 +1,574 @@
+What is Web service and API?
+
+Web Services are used to communicate over a network.  
+The only difference is that a Web service facilitates interaction between two machines over a network. 
+An API acts as an interface between two different applications so that they can communicate with each other. 
+An API is a method by which the third-party vendors can write programs that interface easily with other programs.
+
+An API is used by a computer programmer to establish a link between software applications. 
+This interface can take several forms, a web service is just one of these.
+
+SOAP (Simple Object Access Protocal) : The SOAP Api's supports the XML data format only and strongly follows preset standards such as messaging structure, 
+a set of encoding rules, and a convention for providing procedure requests and responses. WSDL (web service description language) is used to describe the SOAP api's.
+
+Rest ( Restful State Transfer): It can support's all the data formats (XMl, Json, plain Text etc).
+RAML (restfull api modelling language) is used to describe the Rest api's
+
+
+MULE Event - It consists of Mule message and variables
+Mule Message - It consists attributes and payload 
+
+Attributes - We will send the attributes from Postman by and HTTP request to the HTTP listener in Anypoint Studio.
+Attributes are also called as Input parameters (Query and URI Parameters) 
+
+Query params are requested by using (?)
+
+Eg: http://localhost:8081/demo?Cricketer=Virat&Centuries=70
+Crickter and Certuries (Used names from the logic )
+Virat and 70 (those are the inputs)
+
+
+URI params are requested by using (/)
+Note: We need to create the input parameters in Listener path /demo/{cricketer}/{Centuries}
+In Post man http request we need to send the inputs.
+
+eg: http://localhost:8081/demo/virat/70
+
+P2P integration (Point to point): Client will send the request to server, Server will respond back to client.Here server will expose as api, so that the client is able to access directly.
+
+Point to Many integration (Point to Many): Client will send the request to API (Integration tool). Here the request will be generated in to no. of requests based upon the requirement to consume the server services.
+Eg: If server having three API's in the form of SOAP, REST, SOAP accordingly. integration tool generate the 3 request from the integration tool. It will get the in response from server and revert to the client.
+
+Orchastration: It is the process of co ordinating diff services to get the desired output.
+
+Loose coupling: Irrespective of the implementation we are requesting from client using api genrated.
+
+Eg: Client is sending the request to server, but client don't know the server details. by using the Third party messanger like Active MQ we will get the response.
+Here API is used to exchange the data between client and server.
+
+Logical coupling: Instead of the third party messanger , we are using an intergration tool in between the client and server. the intigration tool consists some logic and it will expose as an api. 
+Eg: client will send the request to API(Integration tool ) some logic will be excuted . The integration tool will be connected to server and collect the response and give it back to the client.
+
+Maven is a build tool, It is like a repositery. It contains all the dependencies.
+Eg:
+
+<dependency>
+<groupId>org.mule.connectors</groupId>
+<artifactId>mule-http-connector</artifactId>
+<version>1.5.25</version>
+<classifier>mule-plugin</classifier>
+</dependency
+
+Payload- It is used to store the any type of data temporarily. If we create any other payload in flow the earlier payload will be overridden.
+
+Variable- It is used to store the data, we can call the variable by the variable name on the entire event level.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is class?
+
+Class means blue print or template or user defined data structers.It can't be physical.
+Class is a collection of objects,variables and methods.
+
+Eg: Blueprint of a car , blueprint of chair.
+
+what is object - Object means which is existed physically.
+An entity that has state and behavior is known as an object.
+Eg., chair, bike, marker, pen, table, car, etc. It
+
+Methods - Methods are consists piece of logic and the ouput will be returned.
+Eg: Driving();
+Sitting();
+
+There are two types of methods i) static method. ii) Non- static method.
+
+We can inovke the static method by using class name.
+Syntax:Classname.methodName().
+eg:StockQuoteService.sayHello().
+
+We can inovke the non static by following steps.
+Create an object .
+Create the new constructor by using variable.
+invoke the method by calling the variable.
+
+
+Eg: StockQuoteService Sqs = new StockQuoteService();
+	sqs.getStockPrice();
+
+Deployement Strategies:
+
+On premise- Developement will be done in Local tool (Anypooint studio), And deployement will be done in local server(local machine)
+Hybrid - Development will be done in local tool(APS), And deployed in Cloud(which is managed by the Mule Soft)(Anypoint platform)
+Cloud - Development and deployement will be happen on Cloud (Both operations will be managed by the Mule soft)
+On private cloud - Developement and deployement will be done on our private cloud (It cannot be managed by the mule soft). But Mulesoft will share the private space to us. We will purchase memory from memory.
+
+
+
+product_id:attributes.queryParams.prodid
+brand_name:attributes.queryParams.brandname	
+description:attributes.queryParams.desc
+name:attributes.queryParams.name
+offer _price:attributes.queryParams.offerprice
+offer_valid_until:attributes.queryParams.offervaliduntil
+original_price:attributes.queryParams.originalprice
+
+
+
+
+
+1 Build- development- Anypoint studio (.jar file)
+
+2 server run (start) Create - run -
+
+3 deploy
+
+Post man
+
+8081 port 
+8084 - port
+
+Ports should be unique in the local host.
+
+Local Host- Servers - application- ports
+
+local host 1 
+
+servers 2 4.3.0, 4.4.0 ....... n
+
+projects - 2 , java module , Hello World .... n
+
+Ports - 2  Java module -8081 , 8082, 8083, hello 8084 .... n
+
+
+
+Consuming SOAP API, REST API 
+Chioce router
+consume
+parse Template 
+
+MySQL 
+
+Startup type - Automatic
+port- 3306
+Uname- root
+pass- root
+all the products should be install 
+legacy password system
+
+
+Listener (postman)- HTTP Request 
+
+Flow refrence - Invoke 
+
+Parse template -  Read, SRC/main/resource- Getall products .xml - XML request 
+
+consume - SOAP Services - Response - XML
+
+Transfrom messager - XML- JSON 
+
+if{
+
+}elseif{
+
+
+}elseif{
+
+}else ;
+
+return
+
+
+example = Choice - If () Bike , elseif Car,  elseif Bus, Elsif flight , else train 
+
+
+
+jar-productservicesoap.jar - Implementation ()getallproduct, getproductbyname()- application  get:/products 3rd party 
+server - tomcat server- soap service - API EXpose- <products> - </products> . http:// // server
+
+tamil- XMLrequest -
+
+postman - rest service - HTTP request telugu - getallproducts.xml- resouce tamil
+
+parse template- read (xml, text, json )- XML request 
+
+Consume- response data// - tamil -
+ XML - Transform - Json - telugu.
+
+raml- Describing of rest api 
+
+Wsdl - describing an Soap APi 
+
+
+
+Lab projects:
+
+Aim :To get the output in payload as "Hello World"
+
+Componenets: HTTP Listener, Set Payload or Set Variable
+
+HTTP Listener is used to listen the request by using the general path "demo" from the post man. http://localhost:8081/demo
+Setpayload: Used to set the payload data Or Information.Here we are mentioning "Hello World"
+Set variable: used to set some data (like permenant data).We can call the variable by flow level.
+
+Procedure:
+
+From the Postman we need to send the request to the listener.
+
+will get the output in the post man 
+
+
+Java module: Need to invoke the static and non static methods.
+Static method: it is invoked by using class name 
+Non static method : by the 3steps we will invoke the non static method 
+1.Create the object 
+2.Create the new variable
+3.Extract the class name by using variable name.
+
+components used :
+Invoke static :used to invoke the static method
+Invoke:used to invoke the non static method
+New :used to create the instance to the class 
+
+Before Sujith provided us a predefined Java file which consists of static and non static methods.
+
+Procedure: import the project.
+Add the listener component
+Add one more component invoke static
+Mention the class name 
+And method name 
+Call the method by using variables name.
+
+
+Consuming SOAP API 
+
+ava module: Need to invoke the static and non static methods.
+Static method: it is invoked by using class name 
+Non static method : by the 3steps we will invoke the non static method 
+1.Create the object 
+2.Create the new variable
+3.Extract the class name by using variable name.
+
+components used :
+Invoke static :used to invoke the static method
+Invoke:used to invoke the non static method
+New :used to create the instance to the class 
+
+Before Sujith provided us a predefined Java file which consists of static and non static method.
+
+Procedure: import the project.
+Add the listener component
+Add one more component invoke static
+Mention the class name 
+And method name 
+Call the method by using variables name.
+
+Components used: Listener- used to listen the HTTP request
+Flow reference- It is used to invoke the properties and services of the another flow.
+Parse template- It is used to read the file. In this template we had given the  XML form of data (ALL products data)
+Consume- To consume the SOAP services data we use Consume component.
+Transform message- It is used to transform the data format. Here we are requesting in XML format and response also we recive in XML format. Transformer converts XML to Json.
+Logger - it is used to note the information of the payload in Console.
+
+Description: A java Application is running on internal server (Called Tomcat). Now it is exposed an SOAP API to consume the services.In the consume component we are configuring with the server port number, wsdl form of link.
+
+procedure- Send an request from postman to HTTP listener, by using flow reference we are connected to the flow called getallproducts and getproductbyid. There we can request the data from thrid party application using consume component.
+the request will be in XML form and response also will be in XML form to transform that data into JSon we used transform message component.
+The data will be send to postman there we can see the json format of output.
+
+
+Cosuming REST API- We need to consume the REST API.
+
+All the steps are same like SOAP, But here we are using http request component to consume the Rest data.
+As we know a 3rd party application(Sujith has given REST file) is running on our local server, we connecting to that on port7070.
+ 	by sending the HTTP request we can get the data easily, Input form will be Json and Output form will be Array of objects.
+That array of objects are converted in JSON array format by using trasnform message.
+
+
+File module :
+we need to read the any type of file and convert into other type.
+
+components used : On new or update and logger.
+
+procedure: Configure the on new component with the specified folder path. In the destination coloumn give the folder which we need to read by the component.
+By the methods it will read the document.
+If it is in default mode it will read continously.
+Modified Time Stamp- By this mode it will read only once and after that it will store the process of the application in object store at server level.
+Object stores are store the process state of the application.
+Create Time stamp: It will check the file processed time and file name. if any modification happens it will automatically process the application.
+
+
+write - it is used to write the data. Move - Move the file to one place to another place. please check the file module lot of general componanete are there .
+
+
+DataBase - It is container where we can store our data. Tha output of the database is in the form of result key.
+
+We need to connect to the database by configuring database with the database components.
+
+- Send the request from postman- take the select component and configure the data base.
+write the query to get the data from product table.
+the response on result key format to convert that we use transformer it will convert to json.
+
+There are lot of components in database module- insert, delete, bulk insert ,update bulk, delete etc.
+
+Scatter gather- It is used to scatter the our HTTP request into differnt requests like SOAP, REST, Database etc. We can get the 3 or more data collections will be gathered and it combine all and make the single output.the ouput will be given as payload.
+
+Choice - It is used for the if else condition .When the first request satisfies the condtions it will excute the logic which is implemented inside.if not it will excute the default logic.
+
+Configuration properties- It is a global element which is used to change the runtime configurations by using place holders.
+
+Place holders are used for the dynamic configuration purpose. We will call the database configurations, username, passwords and port numbers dynamically.
+
+Secure config properties: These are used to secure the configuration from the outside persons. It will encrypt the data and decrypt the data at server level.
+
+JMS- Java messaging service- It is an api , Which consists of QUeue and topic. 
+
+Queue - one to one communication. (if you send any message to a person.that wil reach to the person Eg:Whatapp) publish and consume method.
+Topic - one to many communication. (if you send any message in group it will reach to the all the persons in the group) it is called as Pub -sub model publish and subscribe 
+
+
+Functions and Variables:
+
+Fun -  map, orderBy, filter, Zip and Unzip, flatten
+
+
+
+
+Application(methods getAllProdcuts()) - server - API products
+
+
+Exception handler- 
+
+On Error Propagate
+On Error Continue 
+Error Handler(Global E.H or Application Default E.H)
+
+Error object will be created.
+Error will be logged on to console. 
+next processers will not get excuted.
+Mule default error Handler.
+
+Try - We can use this at component level Error Handling. Usually subflows never contains Error Handling property soo we are using Try block at component level or Subflow level 
+
+Raise Error - Custom Errors Generated by us.
+
+
+
+Deployment Ways- Directly from the APS 
+ 		-Export the Jar file and deploy directly in Anypoint platfrom using browser
+		-Add maven dependencies in pom.xml and usin CMD 
+recrusive : calling on it's own 
+
+
+
+Gathering requirement 
+
+Api Design
+
+Fragments, Data Types , Example 
+
+Fragment - We will create the data according to the requirement and will post into Exachange For the further usage
+
+Data types - Id - Integer , Customer Name - String 
+
+Examples - Dummy Data 
+
+Publish Exchange - Withn in  the org Anyone can use 
+
+Public portal - Client will utilize 
+
+Implementation 
+ import the API into APS (Any point Studio)
+
+
+GET - 
+POST - Data will be posted 
+
+Get/Customers : to get all the customer details (SQL Work bench table)
+
+POST/ Customers : Create account (into TAble )
+
+Get/ CustomerID : to get the particular customer
+
+
+Object Store - It is known as a variable,The data insertion will be in key value pair format. 
+When we are configuring Object Store there is a option called persistent. If it is checked then the data will be stored in to the 
+System memory, if it is not checked then the data will be stored into the Heap memory 
+
+Heap Memory means Store on ram memory so that data will receive more faster compare than System memory.
+
+Cloud hub :
+
+It is used to deploy our application on mule soft cloud.
+
+When we are deploying our appplication automatically a Virtual macheine will be generated. In that virtual mechaine consist a mule runtime 
+there our application will deploy.
+
+Creating 5 instances or 5 virtal mechaines is called horizontal Scaling
+
+Vertical scaling- It is increasing capacity  of the Virtal mechaines 
+
+core are specifying the capability of the virtual mechaine.
+
+
+Web service,
+
+
+
+Web service - Connecting the two mechines over a network.
+
+
+many applications are connecting to an ESB(integration platfrom (Integration Application)) and we are consuming that integration application as an API.
+
+
+
+Global Error Handler -we can handle the errors global( We don't need to use error handlers for earch individual flows).
+
+On Error Continue - It can suppress the error and It will give success response to the client.
+
+On Error Propagate - It will give the Error response to the client (400- Client errors, 500 - Server Errors).
+
+Raise Error - Is used to generate the custom raise
+
+
+
+
+-----------------------------------------------
+$ : to acessing the particular element in map
+$$ : getting the index of key value pair
+Custom Object : to create and store the information
+soap xml is more secure than xml
+In choice router we have 4 routes one default and first 2 routes are failed than go to 3rd route 
+----------------------------------
+difference between http and https
+http -hyperlink 
+
+
+-------------------------------------
+soap vs normal xml
+
+soap xml:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+locationCode: 
+          type: string
+    destinationLocation:
+      properties:
+        locationCode: 
+          type: string
+
+
+
+
+
+    
+--------------------------------------------------------------------------------------
+
+1.name,Place
+2.Education
+3.Acdemic ,achievements
+4.personal skills
+5.
+
+------------------------------------------------------
+
+1.What Is API led connectivity?
+  the methodical way to transfer the data between application and through reusable and purposeful APIs
+    a.System API
+    b.Process API
+    c.Experience API
+--------------------
+web service:
+web service is a program which allow to making the integration b/w the applications over a network.
+
+Http: without security as expose the service over the network anybody can consume our service.
+
+Https:with security it allows the service with security only where as the security cant know the anybody else.
+
+both are protocals
+
+Http methods:get,post,delete,put etc
+----------------------------
+VM connector:
+  Virtual Machine (VM Connector) manages intra-app and inter-app communication through either transient(its store the information temparary) or persistent(its store the information permentaly) asynchronous queues.
+----------------
+Auto Discovery:
+ Its used to coneect the runtime manager deployed applictions with api created in platform.
+
+    API Autodiscovery is a mechanism that manages an API from API Manager by pairing the deployed application to an API created on the platform. API Management includes tracking, enforcing policies.
+--------------------------
+Until Sucessfull:
+   it means the scope for executing a set of components as one unit. It processes all the components within it until they produce a successful result. If one processor within the scope fails, it retries the enclosed processors again
+
+--------------------------------
+resource: its nothing but endpoints like for example /customers,/accounts etc.
+resource type: are like resources where will your define methods,descriptions etc.then those methods are used in your resource.
+traits: like funcatons where will your define responses,usage etc.then use those responses in your resource
+-----------------------
+validate: validate components will verify the the content of message wheather it matches the specified criteria.
+Object Store : its means object store allows for key-vale storage.it can serve the varity of use cases,its mainly desing for storing the synchroniz informaction  such as watermarks and storing temporal information acess tokens.
+--------------------------
+Variable: variables are used to store per event values for use within a flow of mule.the stored data can be supported by any datatype,numbers,objects etc
+--------------------
+Scattergather: its a event routing processor.its sends a request msg to the multiple targets concuretlly,it collects responses from various targets them into single message.
+-------------
+If one or more routes throwns an error.scattergather throwns an composite routing exception,which allow to retrive the information for both fail and success routes.
+---------------
+After every route executes if any route has failed with an error then  the scatergather throws an error type:composite routing ,after event processor is stopped.
+----------------------------
+Message Enricher:
+
+--------------------------------------
+API led conectivity:(sys & process & experience)
+      the methodical way to transfer the data between application and through reusable and purposeful APIs
+--------------------------
+Domain project:
+      Domain Project is used to create shared resources which can reuse across other projects who are referring to domain projects.
+------------------------
+Batch:
+    which splits messages into individual records, performs actions upon each record, The term batch job is inclusive of all three phases of processing: Load and Dispatch, Process, and On Complete.
+-----------------------------
+Queue Mechanisam:
+                 A queue is a temporary storage area for a message. You can create queues, FIFO queues, and dead-letter queues in Anypoint Platform. You can also send and receive messages from a queue in Anypoint Studio. 
+--------------------------------------------
+Auto doscovery :
+            API Auto Discovery is used to connect Runtime manager deployed applications with API created on the platform. This will help you for tracking, enforcing policies when you apply for it.
+-----------------------------
+API kit router:
+              Its a routing the incoming request to the particular flow in the api 
+-------------------------------------
+Raml:
+      raml makes it easy to manage the  api life cycle to design to deployment to sharing.
+------------------------------
+API:(application program interface)
+      which is a software intermediary that allows two application talk to each other.
+------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

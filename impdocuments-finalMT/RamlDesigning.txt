@@ -1,0 +1,63 @@
+type: object
+properties:
+  name:
+    required: true
+    minLength: 1
+    type: string
+  id:
+    required: true
+    minLength: 1
+    type: string
+  place:
+    required: true
+    type: string
+    minLength: 1
+=====================================
+Library in datatypes::
+---------------------
+
+types:
+  caseCreation:       ----> Name your choice 
+    properties:
+      caseType:       ------>This is request(example) fileds names
+        required: true
+        minLength: 1
+        type: string
+
+ResoucesTypes.raml:: ------> In this write the Methods and calle the dataTypes 
+-----------------------
+
+post:
+  body:
+    application/json:
+      type: lib.caseCreation
+      example: !include example/caseCreationRequest.raml
+  responses:
+    201:
+          body:
+                application/json:
+                      example: !include example/caseCreationResponse.raml
+
+Main Raml::
+-------------------
+
+
+#%RAML 1.0
+title: fsk-sys-api
+
+uses:
+  lib: Api/Library/library.raml   ----------> here lib name your choice
+resourceTypes:
+  case: !include Api/caseCreateresourceType.raml    ------> here case name also your choice
+
+/case:
+  /caseCreate:
+       type: case
+
+
+-==============================
+API Designer enables you to create API specifications in several modeling languages and create RAML API fragments. After you create a specification or fragment, publish it to Anypoint Exchange for anyone in your MuleSoft organization to use.
+
+API manager:::
+=================
+Anypoint API Manager (API Manager) is a component of Anypoint Platform that enables you to manage, govern, and secure APIs. It leverages the runtime capabilities of API Gateway and Anypoint Service Mesh, both of which enforce policies, collect and track analytics data, manage proxies, provide encryption and authentication, and manage applications.

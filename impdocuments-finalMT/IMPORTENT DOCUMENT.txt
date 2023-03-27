@@ -1,0 +1,49 @@
+CURRENT DATE AND TIME FORMAT
+=============================
+
+%dw 2.0
+var inputVariable = [
+{
+	email: "abc@abc.com",
+	cdate: "2020-05-01T06:00:00Z"
+},
+{
+	email: "abc@abc.com",
+	cdate: "2020-05-01T00:00:00Z"
+},
+{
+	email: "bcb@abc.com",
+	cdate: "2020-05-05T12:00:00Z"
+}]
+output application/json
+---
+inputVariable orderBy ((item, index) -> -(item.cdate as DateTime as String {format: "yyyyMMddHHMMss"} as Number)) distinctBy ((item, index) -> item.email) 
+=============================================
+1)https://docs.mulesoft.com/dataweave/2.4/dw-core-functions-filterobject  ------>all datawave functions urls
+
+
+2) "orderStatus": [         (array remove cheyali ante)
+        "Completed"          ---------->("orderStatus": item1."Order Status"reduce $, or  item1."Order Status"[0])
+      ]
+
+3) pluck $ =========> Use pluck to retrieve the all keys from the input object
+
+
+4) reduce $ =======> remove the multiple array of objects ni[[{}],[{}]]--> ni single array of objects ga [{}] convert chestundi 
+
+5) groupBy =====> array of objects lo multiple same names iterate autunte single name visible cheyadaniki ex:-[{name:siva},{name:anji},{name:siva}]----> siva[{name:anji}] and input array & output object.
+
+6) Batch job ======> batch job loki data enter kavali ante [{}] array of objects lo unte ne enter autundi.
+
+
+================================================================
+
+ALL MULE SOFT DOCUMENTS:::
+---------------------------------------
+
+
+https://docs.mulesoft.com/mule-runtime/4.4/try-scope-concept
+
+
+
+================================================================================

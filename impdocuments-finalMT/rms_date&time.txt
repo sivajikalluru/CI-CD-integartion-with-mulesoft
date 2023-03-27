@@ -1,0 +1,14 @@
+%dw 2.0
+output application/json
+---
+payload.in groupBy ((item,index)->(item."Order Date / Refund date" as Date {format: "dd-MM-yyyy'T'HH:mm:ss"} as String {format: "MM-yyyy"} default "" ++ "_" ++ item."Order Status")) pluck $
+
+
+
+
+
+#[(payload."Order Status" != "Refund" and payload."Order Status" != "")]
+
+
+
+"errorCode":error.muleMessage.typedAttributes.statusCode,

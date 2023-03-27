@@ -1,0 +1,20 @@
+Encryption and Decryption security properties::-->
+---------------------------------------------
+
+1) go to implementation flow and search top right side --> search in Exc--->Add mule secure properties.
+2) go to commonconfiguration -->globalElements-->create--> search -->secureproperties-->give file name:::-->secure.${mule}.yaml,(dev place lo ${mule} pettali) and key :::--->${property.key} and below seclect algorithm(blowfish).
+3)go to url in crome::: https://secure-properties-api.us-e1.cloudhub.io/ and enter algorithm ::blowfish and key:: sivanjaneyuluk(ur choice key value) and value::localhost Enter encryption ex::- jEsLTYge7WL/mmC51K8lKg==  add ![jEsLTYge7WL/mmC51K8lKg==] and copy and paste this code in yaml file and save add the listener in local host and port ex::- ${secure::http.host} and ${secure::http.port}
+4)save all files and run as configuration file -- select project---> add arguments---> 
+-Dmule=dev
+-Dproperty.key=sivanjaneyuluk
+
+note:: -Dmule anedi manam a yaml file ki ${mule} pettamo  dani arguments pass cheyali
+       -Dproperty.key valu manam crome lo encrypt chesetapudu a key value estamo a key value estamu.
+
+
+
+
+
+
+
+
